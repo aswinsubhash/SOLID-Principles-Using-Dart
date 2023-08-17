@@ -55,4 +55,26 @@ Once you master these patterns you will immediately see the world of coding diff
 
 **Behavioral:** Deals with wasy of identifying and improving object messaging.
 
+### The WHY of Software Architecture.
 
+Complex software systems are plagued with many issues:
+   1. **Timelines are streched** as requirements changes.
+   2. Mulitple developers have **hard time coordinating** their efforts.
+   3. Often there is **Code redundancy** and poor documentation.
+
+This in turn creates issues with **maintenance** and overall flexibility for **adding new features**.
+
+In general, this means poorly desined systems that are hard to maintain, and **are not adaptable**.
+
+One answer to all the cited problems is having a proper 
+***design and architecture***.
+
+**Let's look at an example**
+
+Think of a large building being built.
+
+There is always a **high-level blueprint**.
+
+This blueprint is used to show everbody involved (from architects, to supply chain, to construction workers, to machinery scheduling etc...) what is being worked on.
+
+We want that kind of predictability and coherence in our **Software Projects**.
