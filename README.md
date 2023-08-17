@@ -33,7 +33,7 @@
 - As developers, we are prone to mistakes and sometimes inexperienced decisions.
 - Think of design patterns as a bag of reusable experience from many generation of coders and Software Engineers.
 
-*Here are the patterns that we will are going to learn:*
+*Here are the patterns that we are going to learn:*
 
 1. Creational
    - Singleton Pattern
