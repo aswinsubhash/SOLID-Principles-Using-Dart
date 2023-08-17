@@ -1,6 +1,6 @@
 # SOLID Principles and Top Design Patterns
 
-## Intoduction
+## Introduction
 
 ### What are Design Patterns and why do we need them?
 
