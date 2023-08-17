@@ -6,9 +6,8 @@
       - [What are they?](#what-are-they)
       - [Why use them?](#why-use-them)
       - [Summary](#summary)
-    - [The WHY of Software Architecture.](#the-why-of-software-architecture)
+    - [The WHY of Software Architecture](#the-why-of-software-architecture)
   - [S.O.L.I.D Design Principles](#solid-design-principles)
-
 
 ## Introduction
 
@@ -65,9 +64,10 @@ Once you master these patterns you will immediately see the world of coding diff
 
 **Behavioral:** Deals with wasy of identifying and improving object messaging.
 
-### The WHY of Software Architecture.
+### The WHY of Software Architecture
 
 Complex software systems are plagued with many issues:
+
    1. **Timelines are streched** as requirements changes.
    2. Mulitple developers have **hard time coordinating** their efforts.
    3. Often there is **Code redundancy** and poor documentation.
@@ -76,7 +76,7 @@ This in turn creates issues with **maintenance** and overall flexibility for **a
 
 In general, this means poorly desined systems that are hard to maintain, and **are not adaptable**.
 
-One answer to all the cited problems is having a proper 
+One answer to all the cited problems is having a proper
 ***design and architecture***.
 
 **Let's look at an example**
@@ -94,7 +94,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
 **SOLID** Principles of object-oriented programming.
 
  1. **<u>S</u>ingle-responsibility principle**: *There should never be more than one reason for a class to change.* Each class should have only one central responsibility.
-2. **<u>O</u>pen-closed principle**: *Software entities...should be open for extension, but closed for modification.*
-3. **<u>L</u>iskov substitution principle**: *Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
-4. **<u>I</u>nterface segregation principle**: *Clients should not be forced to depend upon interfaces that they do not use.*
-5. **<u>D</u>ependency inversion principle**: *Depend upon abstractions, [not] concretions.*
+ 2. **<u>O</u>pen-closed principle**: *Software entities...should be open for extension, but closed for modification.*
+ 3. **<u>L</u>iskov substitution principle**: *Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
+ 4. **<u>I</u>nterface segregation principle**: *Clients should not be forced to depend upon interfaces that they do not use.*
+ 5. **<u>D</u>ependency inversion principle**: *Depend upon abstractions, [not] concretions.*
