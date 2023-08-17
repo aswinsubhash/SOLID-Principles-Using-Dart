@@ -1,5 +1,14 @@
 # SOLID Principles and Top Design Patterns
 
+- [SOLID Principles and Top Design Patterns](#solid-principles-and-top-design-patterns)
+  - [Introduction](#introduction)
+    - [What are Design Patterns and why do we need them?](#what-are-design-patterns-and-why-do-we-need-them)
+      - [What are they?](#what-are-they)
+      - [Why use them?](#why-use-them)
+      - [Summary](#summary)
+    - [The WHY of Software Architecture.](#the-why-of-software-architecture)
+
+
 ## Introduction
 
 ### What are Design Patterns and why do we need them?
@@ -78,3 +87,4 @@ There is always a **high-level blueprint**.
 This blueprint is used to show everbody involved (from architects, to supply chain, to construction workers, to machinery scheduling etc...) what is being worked on.
 
 We want that kind of predictability and coherence in our **Software Projects**.
+
