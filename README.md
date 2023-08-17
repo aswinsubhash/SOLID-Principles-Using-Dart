@@ -1,1 +1,1 @@
-# SOLID-Principles-and-Top-Design-Patterns
+# SOLID Principles and Top Design Patterns
