@@ -7,6 +7,7 @@
       - [Why use them?](#why-use-them)
       - [Summary](#summary)
     - [The WHY of Software Architecture.](#the-why-of-software-architecture)
+  - [S.O.L.I.D Design Principles](#solid-design-principles)
 
 
 ## Introduction
@@ -88,3 +89,12 @@ This blueprint is used to show everbody involved (from architects, to supply cha
 
 We want that kind of predictability and coherence in our **Software Projects**.
 
+## S.O.L.I.D Design Principles
+
+**SOLID** Principles of object-oriented programming.
+
+ 1. **<u>S</u>ingle-responsibility principle**: *There should never be more than one reason for a class to change.* Each class should have only one central responsibility.
+2. **<u>O</u>pen-closed principle**: *Software entities...should be open for extension, but closed for modification.*
+3. **<u>L</u>iskov substitution principle**: *Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
+4. **<u>I</u>nterface segregation principle**: *Clients should not be forced to depend upon interfaces that they do not use.*
+5. **<u>D</u>ependency inversion principle**: *Depend upon abstractions, [not] concretions.*
