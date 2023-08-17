@@ -16,7 +16,7 @@
 #### What are they?
 
 - Desing patterns are well tested, reusable solution.
-- They are like a <u>solution template</u> for how to solve common software engineer ploblems.
+- They are like a **solution template** for how to solve common software engineer ploblems.
 - They are flexible and adaptable.
 - They save time because they are optimal.
 
@@ -45,16 +45,16 @@
 2. Structural
    - Adapter Pattern
 
-**Structural Design Patterns** are design patterns that <u>improves</u> and <u>simplify</u> your designs by identifying the most <u>most efficient</u> and <u>reusable</u> way to composing relationships among entities. <u>This allows for the best and most efficient ways of creating complex hierarchies of objects.</u>
+**Structural Design Patterns** are design patterns that **improves** and **simplify** your designs by identifying the most **most efficient** and **reusable** way to composing relationships among entities. **This allows for the best and most efficient ways of creating complex hierarchies of objects**.
 
 3. Behavioral
    - Strategy Pattern
    - Observer Pattern
    - State Pattern
 
-**Behavioral Design Patterns** are design patterns that <u>imporves interation</u> and <u>communication</u> between objects. These patterns offer **<u>loosely coupled</u>** ways of allowing objects to talk to each other and exchange messages.
+**Behavioral Design Patterns** are design patterns that **imporves interation** and **communication** between objects. These patterns offer **loosely coupled** ways of allowing objects to talk to each other and exchange messages.
 
-Once you master these patterns you will immediately see the world of coding differently. <u>You will start seeing those patterns everywhere.</u>
+Once you master these patterns you will immediately see the world of coding differently. **You will start seeing those patterns everywhere**.
 
 *Just remember these pattern families:*
 
@@ -93,8 +93,8 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
 **SOLID** Principles of object-oriented programming.
 
- 1. **<u>S</u>ingle-responsibility principle**: *There should never be more than one reason for a class to change.* Each class should have only one central responsibility.
- 2. **<u>O</u>pen-closed principle**: *Software entities...should be open for extension, but closed for modification.*
- 3. **<u>L</u>iskov substitution principle**: *Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
- 4. **<u>I</u>nterface segregation principle**: *Clients should not be forced to depend upon interfaces that they do not use.*
- 5. **<u>D</u>ependency inversion principle**: *Depend upon abstractions, [not] concretions.*
+ 1. **Single-responsibility principle**: *There should never be more than one reason for a class to change.* Each class should have only one central responsibility.
+ 2. **Open-closed principle**: *Software entities...should be open for extension, but closed for modification.*
+ 3. **Liskov substitution principle**: *Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
+ 4. **Interface segregation principle**: *Clients should not be forced to depend upon interfaces that they do not use.*
+ 5. **Dependency inversion principle**: *Depend upon abstractions, [not] concretions.*
