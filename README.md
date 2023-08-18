@@ -119,9 +119,9 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       **Hints:**
       
-      1. Identify **different responsibilities** in the given code. 
-      2. **Create separate classes** for each responsibility.
-      3. Ensure that each class **has only one** reason to change.
+      - Identify **different responsibilities** in the given code. 
+      - **Create separate classes** for each responsibility.
+      - Ensure that each class **has only one** reason to change.
    
       Hope you got it. Ok fine let's look at the solution.
 
