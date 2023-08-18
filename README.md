@@ -296,4 +296,4 @@ We want that kind of predictability and coherence in our **Software Projects**.
       - Every time we wanted to add a new shape, we had to modify the `AreaCalculator` class.
       - This made the class difficult to maintain and also increase the risk of introducing bugs.
      
-     So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the area calculator itself doesn't have to change in the future.
+     So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the `AreaCalculator` itself doesn't have to change in the future.
