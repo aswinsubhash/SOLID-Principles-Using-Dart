@@ -267,3 +267,33 @@ We want that kind of predictability and coherence in our **Software Projects**.
              }
           }
           ```
+
+      So, this is the solution.
+
+      #### But what exactly was wrong with the code?
+      #### What was bad with the code?
+
+      - The bad code violated the Open/Closed Priciple because the `AreaCalculator` class was not closed for modification.
+
+         ```dart
+         class Shape {
+         String type;
+
+         Shape(this.type);
+         }
+
+         class AreaCalculator {
+         double calculateArea(Shape shape) {
+            if (shape.type == 'circle') {
+               // calculate area of circle
+            } else if (shape.type == 'square') {
+               // calculate area of square
+            }
+               // ...
+         }
+         } 
+         ```
+      - Every time we wanted to add a new shape, we had to modify the `AreaCalculator` class.
+      - This made the class difficult to maintain and also increase the risk of introducing bugs.
+     
+     So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the area calculator itself doesn't have to change in the future.
