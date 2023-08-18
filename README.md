@@ -205,6 +205,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
           return 3.14 * radius * radius; // πr²
         }
       }
+      
       class Square extends Shape {
         double side;
 
