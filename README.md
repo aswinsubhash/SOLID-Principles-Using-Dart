@@ -147,9 +147,9 @@ We want that kind of predictability and coherence in our **Software Projects**.
        ```
       Let's have a look at what we did here.
 
-      1. The original code violate the **Single Responsibility Principle** because the ***User*** class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
-      2. In the refactored solution, we have separated the responsibilities into three different classes: **User**, **UserRepository** and **UserView**.
-      3. **User** class is responsible for holding user data, **UserRepository** class is responsible for saving user data to the database, and **UserView** class is responsible for displaying a welcome message to the user.
+      4. The original code violate the **Single Responsibility Principle** because the `User` class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
+      5. In the refactored solution, we have separated the responsibilities into three different classes: `User`, `UserRepository` and `UserView`.
+      6. `User` class is responsible for holding user data, `UserRepository` class is responsible for saving user data to the database, and `UserView` class is responsible for displaying a welcome message to the user.
       
       That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
 
@@ -183,10 +183,10 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       **Hints:**
 
-      1. Identify the parts of the code **that changes** when a new type of object is introduced.
-      2. Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
-      3. **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
-      4. Use the **abstraction instead of the concrete classes** where the behavior is needed.
+      7. Identify the parts of the code **that changes** when a new type of object is introduced.
+      8. Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
+      9. **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
+      10. Use the **abstraction instead of the concrete classes** where the behavior is needed.
       
       Did you succeed? Ok fine let's look at the solution.
 
@@ -225,16 +225,15 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       So what have we learned from the refactoring?
 
-      1. In the refactores solution, we have an abstract ***Shape*** class with **an abstract** calculateArea method.
+      11. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
 
       ```dart
       abstract class Shape {
         double calculateArea();
       }
       ```
-      2. Then we have the ***Circle*** and `Square` classes, which are **concrete** implementation of the ***Shape*** class.
-      3. Each of these classes overrides the **calculateArea** method to provide it's own implementation.
-
+      12. Then we have the `Circle` and `Square` classes, which are **concrete** implementation of the `Shape` class.
+      13. Each of these classes overrides the `calculateArea()` method to provide it's own implementation.
 
       ```dart
       class Circle extends Shape {
