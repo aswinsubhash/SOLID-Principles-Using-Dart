@@ -1,4 +1,4 @@
-# SOLID Principles Using Dart and Top Design Patterns
+# SOLID Principles Using Dart
 
 ## 1. Introduction
 
