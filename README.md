@@ -1,6 +1,6 @@
 # SOLID Principles Using Dart and Top Design Patterns
 
-## Introduction
+## 1. Introduction
 
 ### What are Design Patterns and why do we need them?
 
@@ -80,7 +80,7 @@ This blueprint is used to show everbody involved (from architects, to supply cha
 
 We want that kind of predictability and coherence in our **Software Projects**.
 
-## S.O.L.I.D Design Principles
+## 2. S.O.L.I.D Design Principles
 
 **SOLID** Principles of object-oriented programming.
 
