@@ -183,10 +183,10 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       **Hints:**
 
-      7. Identify the parts of the code **that changes** when a new type of object is introduced.
-      8. Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
-      9. **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
-      10. Use the **abstraction instead of the concrete classes** where the behavior is needed.
+      - Identify the parts of the code **that changes** when a new type of object is introduced.
+      - Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
+      - **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
+      - Use the **abstraction instead of the concrete classes** where the behavior is needed.
       
       Did you succeed? Ok fine let's look at the solution.
 
@@ -225,37 +225,45 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       So what have we learned from the refactoring?
 
-      11. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
+      1. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
 
-      ```dart
-      abstract class Shape {
-        double calculateArea();
-      }
-      ```
-      12. Then we have the `Circle` and `Square` classes, which are **concrete** implementation of the `Shape` class.
-      13. Each of these classes overrides the `calculateArea()` method to provide it's own implementation.
+         ```dart
+         abstract class Shape {
+         double calculateArea();
+         }
+         ```
+      2. Then we have the `Circle` and `Square` classes, which are **concrete** implementation of the `Shape` class.
+      3. Each of these classes overrides the `calculateArea()` method to provide it's own implementation.
 
-      ```dart
-      class Circle extends Shape {
-        double radius;
+         ```dart
+         class Circle extends Shape {
+         double radius;
 
-        Circle(this.radius);
+         Circle(this.radius);
 
-        @override
-        double calculateArea() {
-          return 3.14 * radius * radius;
-        }
-      }
+         @override
+         double calculateArea() {
+            return 3.14 * radius * radius;
+         }
+         }
 
-      class Square extends Shape {
-        double side;
+         class Square extends Shape {
+         double side;
 
-        Square(this.side);
+         Square(this.side);
 
-        @override
-        double calculateArea() {
-          return side * side;
-        }
-      }
-      ```
-      4. 
+         @override
+         double calculateArea() {
+            return side * side;
+         }
+         }
+         ```
+      4. Finally, we have the `AreaCalculator` class that uses the `Shape` class to calculate the area, so it doesn't need to know the specific type of shape.
+
+          ```dart
+          class AreaCalculator {
+             double calculate(Shape shape) {
+                return shape.calculateArea();
+             }
+          }
+          ```
