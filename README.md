@@ -1,14 +1,5 @@
 # SOLID Principles and Top Design Patterns
 
-- [SOLID Principles and Top Design Patterns](#solid-principles-and-top-design-patterns)
-  - [Introduction](#introduction)
-    - [What are Design Patterns and why do we need them?](#what-are-design-patterns-and-why-do-we-need-them)
-      - [What are they?](#what-are-they)
-      - [Why use them?](#why-use-them)
-      - [Summary](#summary)
-    - [The WHY of Software Architecture](#the-why-of-software-architecture)
-  - [S.O.L.I.D Design Principles](#solid-design-principles)
-
 ## Introduction
 
 ### What are Design Patterns and why do we need them?
