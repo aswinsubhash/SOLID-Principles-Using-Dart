@@ -119,10 +119,10 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       **Hints:**
       
-      1. Identify **different responsibilities** in the given code.
+      1. Identify **different responsibilities** in the given code. 
       2. **Create separate classes** for each responsibility.
       3. Ensure that each class **has only one** reason to change.
-
+   
       Hope you got it. Ok fine let's look at the solution.
 
        ```dart
@@ -150,9 +150,8 @@ We want that kind of predictability and coherence in our **Software Projects**.
       1. The original code violate the **Single Responsibility Principle** because the ***User*** class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
       2. In the refactored solution, we have separated the responsibilities into three different classes: **User**, **UserRepository** and **UserView**.
       3. **User** class is responsible for holding user data, **UserRepository** class is responsible for saving user data to the database, and **UserView** class is responsible for displaying a welcome message to the user.
-
+      
       That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
 
       ### 2. Open/Closed Principle (OCP)
 
-      
