@@ -202,7 +202,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
         @override
         double calculateArea() {
-          return 3.14 * radius * radius;
+          return 3.14 * radius * radius; // πr²
         }
       }
       class Square extends Shape {
@@ -243,7 +243,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
          @override
          double calculateArea() {
-            return 3.14 * radius * radius;
+            return 3.14 * radius * radius; // πr²
          }
          }
 
