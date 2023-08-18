@@ -94,24 +94,24 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
      Let's look at a class that violates the SRP.
 
-      ```dart
+     ```dart
      class User {
-        String name;
-        String email;
+       String name;
+       String email;
 
-        User(this.name, this.email);
+       User(this.name, this.email);
 
-        void saveUserToDatabase() {
-            // save user to the database
-        }
+       void saveUserToDatabase() {
+          // save user to the database
+       }
 
-        void showWelcomeMessage() {
-            print('Welcome, $name!');
-        }
+       void showWelcomeMessage() {
+          print('Welcome, $name!');
+       }
      }
       ```
 
-      We have a single class that has some dat and it has two sunctions or two methods.
+      We have a single class that has some data and it has two functions or two methods.
 
       Take some time and think about how does this class violate the **Single Responsibility Principle**?
 
@@ -125,22 +125,22 @@ We want that kind of predictability and coherence in our **Software Projects**.
    
       Hope you got it. Ok fine let's look at the solution.
 
-       ```dart
+      ```dart
       class User {
-         String name;
-         String email;
+        String name;
+        String email;
 
-         User(this.name, this.email);
+        User(this.name, this.email);
       }
 
       class UserRepository {
-         void saveUserToDatabase(User user) {
-         // save user to the database
-         }
+        void saveUserToDatabase(User user) {
+           // save user to the database
+        }
       }
 
       class UserView {
-         void showWelcomeMessage(User user) {
+        void showWelcomeMessage(User user) {
            print('Welcome, ${user.name}!');
          }
       }
@@ -155,3 +155,108 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       ### 2. Open/Closed Principle (OCP)
 
+      Let's have a look at this piece of code.
+
+      ```dart
+      class Shape {
+        String type;
+
+        Shape(this.type);
+      }
+
+      class AreaCalculator {
+        double calculateArea(Shape shape) {
+          if (shape.type == 'circle') {
+             // calculate area of circle
+          } else if (shape.type == 'square') {
+            // calculate area of square
+          }
+            // ...
+        }
+      } 
+       ```
+      This code is Pretty Bad, it violates **Open/Closed Principle**
+
+      Take some time and think about how does this class violate the **Open/Closed Principle**?
+
+      Did you get it? Ok fine let's look at the hints and try again.
+
+      **Hints:**
+
+      1. Identify the parts of the code **that changes** when a new type of object is introduced.
+      2. Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
+      3. **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
+      4. Use the **abstraction instead of the concrete classes** where the behavior is needed.
+      
+      Did you succeed? Ok fine let's look at the solution.
+
+      ```dart
+      abstract class Shape {
+        double calculateArea();
+      }
+
+      class Circle extends Shape {
+        double radius;
+
+        Circle(this.radius);
+
+        @override
+        double calculateArea() {
+          return 3.14 * radius * radius;
+        }
+      }
+      class Square extends Shape {
+        double side;
+
+        Square(this.side);
+
+        @override
+        double calculateArea() {
+          return side * side;
+        }
+      }
+
+      class AreaCalculator {
+        double calculate(Shape shape) {
+          return shape.calculateArea();
+        }
+      }   
+       ```
+
+      So what have we learned from the refactoring?
+
+      1. In the refactores solution, we have an abstract ***Shape*** class with **an abstract** calculateArea method.
+
+      ```dart
+      abstract class Shape {
+        double calculateArea();
+      }
+      ```
+      2. Then we have the ***Circle*** and `Square` classes, which are **concrete** implementation of the ***Shape*** class.
+      3. Each of these classes overrides the **calculateArea** method to provide it's own implementation.
+
+
+      ```dart
+      class Circle extends Shape {
+        double radius;
+
+        Circle(this.radius);
+
+        @override
+        double calculateArea() {
+          return 3.14 * radius * radius;
+        }
+      }
+
+      class Square extends Shape {
+        double side;
+
+        Square(this.side);
+
+        @override
+        double calculateArea() {
+          return side * side;
+        }
+      }
+      ```
+      4. 
