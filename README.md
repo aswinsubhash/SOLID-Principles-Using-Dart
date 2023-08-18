@@ -147,9 +147,9 @@ We want that kind of predictability and coherence in our **Software Projects**.
        ```
       Let's have a look at what we did here.
 
-      4. The original code violate the **Single Responsibility Principle** because the `User` class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
-      5. In the refactored solution, we have separated the responsibilities into three different classes: `User`, `UserRepository` and `UserView`.
-      6. `User` class is responsible for holding user data, `UserRepository` class is responsible for saving user data to the database, and `UserView` class is responsible for displaying a welcome message to the user.
+      1. The original code violate the **Single Responsibility Principle** because the `User` class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
+      2. In the refactored solution, we have separated the responsibilities into three different classes: `User`, `UserRepository` and `UserView`.
+      3. `User` class is responsible for holding user data, `UserRepository` class is responsible for saving user data to the database, and `UserView` class is responsible for displaying a welcome message to the user.
       
       That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
 
