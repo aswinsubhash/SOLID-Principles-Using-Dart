@@ -443,6 +443,3 @@ We want that kind of predictability and coherence in our **Software Projects**.
    This is a semantic issue as in fact electric and petrol vehicles will need to be serviced differently.
 
    You even see this in real life where you have special charging stations for electric cars, which are different from gas station.
-
-   All right, so I hope that this has shed a little bit more light on what is exactly about the **Liskov Substituion Principle**.
-      
