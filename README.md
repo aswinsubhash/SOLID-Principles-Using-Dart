@@ -229,11 +229,11 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       1. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
 
-         ```dart
-         abstract class Shape {
-         double calculateArea();
-         }
-         ```
+      ```dart
+      abstract class Shape {
+        double calculateArea();
+      }
+       ```
       2. Then we have the `Circle` and `Square` classes, which are **concrete** implementation of the `Shape` class.
       3. Each of these classes overrides the `calculateArea()` method to provide it's own implementation.
 
