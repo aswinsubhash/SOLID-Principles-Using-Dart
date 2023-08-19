@@ -429,7 +429,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
    
    This is where the **Liskov Substitution Principle** is very important.
    
-   You cannot really charge a that needs fuel and you cannot fuel a car that needs charge.
+   You cannot really charge a car that needs fuel and you cannot fuel a car that needs charge.
 
    This was semantic problem.
 
