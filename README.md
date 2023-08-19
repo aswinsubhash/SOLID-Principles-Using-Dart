@@ -298,3 +298,62 @@ We want that kind of predictability and coherence in our **Software Projects**.
       - This made the class difficult to maintain and also increase the risk of introducing bugs.
      
      So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the `AreaCalculator` itself doesn't have to change in the future.
+
+     ### 3. Liskov Substitution Principle (LSP)
+
+     So, let's have a look at this piece of code below.
+
+     ```dart
+     abstract class Vehicle{
+       void refuel();
+       void move();
+      }
+
+     class ElectricCar extends Vehicle{
+
+       @override
+       void refuel(){
+          print('Charging the battery...');
+       }
+      
+       @override
+       void move(){
+          print('Moving...');
+       }
+     }
+
+      class PetrolCar extends Vehicle{
+
+        @override
+        void refuel(){
+           print('Refilling the petrol...');
+        }
+      
+        @override
+        void move(){
+           print('Moving...');
+        }
+      }
+
+        void serviceVehicle(Vehicle vehicle){
+        vehicle.refuel();
+      
+        // some more servicing activities
+
+       }
+       ```
+       These set of codes violes the **Liskov Subsititution Priciple**.
+
+       Let's look at some of hints to help you with figuring this out.
+
+       **Hints:**
+
+       1. Identify methods that aren't applicable to **all subclasses**.
+       2. Consider splitting the superclass into more specific subclasses or interfaces.
+       3. Ensure that each subclass can be used interchangeably with the superclass without causing any issues.
+
+   Take some time and try to figure out.
+
+   Did you suceeded? Ok fine let's look at the solution.
+
+   
