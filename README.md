@@ -359,7 +359,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
    Take some time and try to figure out.
 
-   Did you suceeded? Ok fine let's look at the solution.
+   Did you succeeded? Ok fine let's look at the solution.
 
    ```dart
    abstract class Vehicle{
