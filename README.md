@@ -412,3 +412,16 @@ We want that kind of predictability and coherence in our **Software Projects**.
       // some more servicing activities
   }
    ```
+  So now let's have a look at what exactly have we done?
+
+   1. In the refactored solution, we separated `FuelVehicle` and `ElectricVehicle` as two different abstractions, both extending `Vehicle`
+
+   ```dart
+   abstract class FuelVehicle extends Vehicle {
+     void refuel();
+   }
+
+    abstract class ElectricVehicle extends Vehicle {
+      void recharge();
+    }
+      ```
