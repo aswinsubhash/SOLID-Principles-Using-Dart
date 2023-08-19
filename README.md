@@ -416,12 +416,33 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
    1. In the refactored solution, we separated `FuelVehicle` and `ElectricVehicle` as two different abstractions, both extending `Vehicle`
 
-   ```dart
-   abstract class FuelVehicle extends Vehicle {
-     void refuel();
-   }
+      ```dart
+      abstract class FuelVehicle extends Vehicle {
+      void refuel();
+      }
 
-    abstract class ElectricVehicle extends Vehicle {
-      void recharge();
-    }
-      ```
+      abstract class ElectricVehicle extends Vehicle {
+         void recharge();
+      }
+         ```
+  2. This allows us to create **separate service methods** for each type of vehicle, ensuring that we don't attempt to perform an action that doesn't make sense for a particular type of vehicle.
+   
+   This is where the **Liskov Substitution Principle** is very important.
+   
+   You cannot really charge a that needs fuel and you cannot fuel a car that needs charge.
+
+   This was semantic problem.
+
+   #### So, what was really wrong with the original code?
+
+   - The original code violated the **Liskov Substitution Principle** because `ElectricCar`, as a subclass of `Vehicle`, wasn't truly substitutable for `Vehicle` in all situations.
+   - Specifically, the `refuel()` method didn't make sense for `ElectricCar`.
+
+   An electric car cannot be fueled because it needs to be charged.
+
+   This is a semantic issue as in fact electric and petrol vehicles will need to be serviced differently.
+
+   You even see this in real life where you have special charging stations for electric cars, which are different from gas station.
+
+   All right, so I hope that this has shed a little bit more light on what is exactly about the **Liskov Substituion Principle**.
+      
