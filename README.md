@@ -92,6 +92,8 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
      ### 1. Single Responsibility Principle (SRP)
 
+     *There should never be more than one reason for a class to change.*
+
      Let's look at a class that violates the SRP.
 
      ```dart
@@ -154,6 +156,8 @@ We want that kind of predictability and coherence in our **Software Projects**.
       That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
 
       ### 2. Open/Closed Principle (OCP)
+
+      *Software entities...should be open for extension, but closed for modification.*
 
       Let's have a look at this piece of codes.
 
@@ -302,6 +306,8 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
 ### 3. Liskov Substitution Principle (LSP)
 
+*Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
+
 So, let's have a look at this piece of codes below.
 
 ```dart
@@ -446,3 +452,4 @@ void serviceVehicle(Vehicle vehicle){
 
 ### 4. Interface Segregation Principle (ISP)
 
+*Clients should not be forced to depend upon interfaces that they do not use.*
