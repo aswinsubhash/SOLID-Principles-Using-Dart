@@ -412,7 +412,7 @@ void serviceVehicle(Vehicle vehicle){
       // some more servicing activities
   }
    ```
-  So now let's have a look at what exactly have we done?
+  So, now let's have a look at what exactly have we done?
 
    1. In the refactored solution, we separated `FuelVehicle` and `ElectricVehicle` as two different abstractions, both extending `Vehicle`
 
