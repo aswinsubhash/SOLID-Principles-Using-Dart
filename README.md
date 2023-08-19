@@ -155,15 +155,16 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
       ### 2. Open/Closed Principle (OCP)
 
-      Let's have a look at this piece of code.
+      Let's have a look at this piece of codes.
 
       ```dart
       class Shape {
         String type;
 
         Shape(this.type);
-      }
-
+      } 
+       ```
+      ```dart
       class AreaCalculator {
         double calculateArea(Shape shape) {
           if (shape.type == 'circle') {
@@ -238,25 +239,25 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
          ```dart
          class Circle extends Shape {
-         double radius;
+           double radius;
 
-         Circle(this.radius);
+           Circle(this.radius);
 
-         @override
-         double calculateArea() {
-            return 3.14 * radius * radius; // πr²
-         }
+           @override
+           double calculateArea() {
+              return 3.14 * radius * radius; // πr²
+           }
          }
 
          class Square extends Shape {
-         double side;
+           double side;
 
-         Square(this.side);
+           Square(this.side);
 
-         @override
-         double calculateArea() {
-            return side * side;
-         }
+           @override
+           double calculateArea() {
+              return side * side;
+           }
          }
          ```
       4. Finally, we have the `AreaCalculator` class that uses the `Shape` class to calculate the area, so it doesn't need to know the specific type of shape.
@@ -301,14 +302,15 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
      ### 3. Liskov Substitution Principle (LSP)
 
-     So, let's have a look at this piece of code below.
+     So, let's have a look at this piece of codes below.
 
      ```dart
      abstract class Vehicle{
        void refuel();
        void move();
       }
-
+       ```
+     ```dart
      class ElectricCar extends Vehicle{
 
        @override
@@ -321,6 +323,8 @@ We want that kind of predictability and coherence in our **Software Projects**.
           print('Moving...');
        }
      }
+       ```
+      ```dart
 
       class PetrolCar extends Vehicle{
 
@@ -334,14 +338,15 @@ We want that kind of predictability and coherence in our **Software Projects**.
            print('Moving...');
         }
       }
-
-        void serviceVehicle(Vehicle vehicle){
-        vehicle.refuel();
-      
-        // some more servicing activities
-
-       }
        ```
+       ```dart
+        void serviceVehicle(Vehicle vehicle){
+          vehicle.refuel();
+      
+          // some more servicing activities
+
+        }
+      ```
        These set of codes violes the **Liskov Subsititution Priciple**.
 
        Let's look at some of hints to help you with figuring this out.
@@ -356,4 +361,54 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
    Did you suceeded? Ok fine let's look at the solution.
 
+   ```dart
+   abstract class Vehicle{
+     void move();
+   }
+
+   abstract class FuelVehicle extends Vehicle {
+     void refuel();
+   }
+
+   abstract class ElectricVehicle extends Vehicle {
+     void recharge();
+   }
+   ```
+   ```dart
+   class ElectricCar extends ElectricVehicle {
+
+     @override
+     void recharge() {
+        print('Recharging the car.....');
+     }
    
+     @override
+     void move(){
+        print('Electric car is moving...');
+     }
+
+   }
+
+   class PetrolCar extends FuelVehicle{
+     @override
+     void refuel() {
+       print('Refueling the car....');
+     }
+   
+     @override
+     void move() {
+        print('Moving the petrol car...');
+     }
+   }
+   ```
+   ```dart
+   void serviceFuelVehicle(FuelVehicle fuelVehicle){
+      fuelVehicle.refuel();
+      // some more servicing activities
+   }
+
+   void serviceElectricVehicle(ElectricVehicle electricVehicle){
+      electricVehicle.recharge();
+      // some more servicing activities
+  }
+   ```
