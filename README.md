@@ -300,62 +300,62 @@ We want that kind of predictability and coherence in our **Software Projects**.
      
      So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the `AreaCalculator` itself doesn't have to change in the future.
 
-     ### 3. Liskov Substitution Principle (LSP)
+### 3. Liskov Substitution Principle (LSP)
 
-     So, let's have a look at this piece of codes below.
+So, let's have a look at this piece of codes below.
 
-     ```dart
-     abstract class Vehicle{
-       void refuel();
-       void move();
-      }
-       ```
-     ```dart
-     class ElectricCar extends Vehicle{
+```dart
+abstract class Vehicle{
+   void refuel();
+   void move();
+}
+```
+```dart
+class ElectricCar extends Vehicle{
 
-       @override
-       void refuel(){
-          print('Charging the battery...');
-       }
+   @override
+   void refuel(){
+      print('Charging the battery...');
+   }
       
-       @override
-       void move(){
-          print('Moving...');
-       }
-     }
-       ```
-      ```dart
+   @override
+   void move(){
+      print('Moving...');
+   }
+}
+ ```
+```dart
 
-      class PetrolCar extends Vehicle{
+class PetrolCar extends Vehicle{
 
-        @override
-        void refuel(){
-           print('Refilling the petrol...');
-        }
+  @override
+  void refuel(){
+     print('Refilling the petrol...');
+  }
       
-        @override
-        void move(){
-           print('Moving...');
-        }
-      }
-       ```
-       ```dart
-        void serviceVehicle(Vehicle vehicle){
-          vehicle.refuel();
+  @override
+  void move(){
+      print('Moving...');
+  }
+}
+ ```
+```dart
+void serviceVehicle(Vehicle vehicle){
+   vehicle.refuel();
       
-          // some more servicing activities
+   // some more servicing activities
 
-        }
-      ```
-       These set of codes violates the **Liskov Subsititution Priciple**.
+}
+ ```
+   These set of codes violates the **Liskov Subsititution Priciple**.
 
-       Let's look at some of hints to help you with figuring this out.
+   Let's look at some of hints to help you with figuring this out.
 
-       **Hints:**
+   **Hints:**
 
-       1. Identify methods that aren't applicable to **all subclasses**.
-       2. Consider splitting the superclass into more specific subclasses or interfaces.
-       3. Ensure that each subclass can be used interchangeably with the superclass without causing any issues.
+   1. Identify methods that aren't applicable to **all subclasses**.
+   2. Consider splitting the superclass into more specific subclasses or interfaces.
+   3. Ensure that each subclass can be used interchangeably with the superclass without causing any issues.
 
    Take some time and try to figure out.
 
@@ -443,3 +443,6 @@ We want that kind of predictability and coherence in our **Software Projects**.
    This is a semantic issue as in fact electric and petrol vehicles will need to be serviced differently.
 
    You even see this in real life where you have special charging stations for electric cars, which are different from gas station.
+
+### 4. Interface Segregation Principle (ISP)
+
