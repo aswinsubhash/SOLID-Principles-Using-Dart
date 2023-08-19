@@ -347,7 +347,7 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
         }
       ```
-       These set of codes violes the **Liskov Subsititution Priciple**.
+       These set of codes violates the **Liskov Subsititution Priciple**.
 
        Let's look at some of hints to help you with figuring this out.
 
