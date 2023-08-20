@@ -223,13 +223,15 @@ We want that kind of predictability and coherence in our **Software Projects**.
           return side * side;
         }
       }
-
+       ```
+    ```dart
       class AreaCalculator {
         double calculate(Shape shape) {
           return shape.calculateArea();
         }
-      }   
-       ```
+      } 
+       ```  
+
 
       So what have we learned from the refactoring?
 
