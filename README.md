@@ -134,13 +134,16 @@ We want that kind of predictability and coherence in our **Software Projects**.
 
         User(this.name, this.email);
       }
-
+       ```
+     ```dart
       class UserRepository {
         void saveUserToDatabase(User user) {
            // save user to the database
         }
       }
+       ```
 
+     ```dart
       class UserView {
         void showWelcomeMessage(User user) {
            print('Welcome, ${user.name}!');
