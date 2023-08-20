@@ -195,11 +195,13 @@ We want that kind of predictability and coherence in our **Software Projects**.
       
       Did you succeed? Ok fine let's look at the solution.
 
-      ```dart
+  
+     ```dart
       abstract class Shape {
         double calculateArea();
       }
-
+      ```
+    ```dart
       class Circle extends Shape {
         double radius;
 
