@@ -303,9 +303,9 @@ We want that kind of predictability and coherence in our **Software Projects**.
              // calculate area of square
           }
              // ...
-       }
-    } 
-      ```
+        }
+      }  
+       ```
       - Every time we wanted to add a new shape, we had to modify the `AreaCalculator` class.
       - This made the class difficult to maintain and also increase the risk of introducing bugs.
      
