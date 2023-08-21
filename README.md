@@ -582,3 +582,16 @@ class SmartPhone implements Phone, EmailDevice, WebBrowser, Camera {
 }
 ```
 When you look at this, it seems to make a lot of sense.
+
+Yes, we have more interfaces, but we are not forcing classes to implement interfaces that they do not need.
+
+Let's recap the refactores solution.
+
+1. In the refactored solution, the `SmartDevice` interface is segregated into four interfaces: `Phone`, `EmailDevice`, `WebBrowser` and `Camera`.
+2. The `SmartPhone` class implements all four interfaces while the `SmartWatch` class implements only the `Phone` interface.
+3. This way, the `SmartWatch` class is not forced to implement the `sendMail()`, `browseInternet()` and `takePicture()` methods, which it doesn't need.
+
+#### What's wrong in the original code?
+
+1. The original (bad) code violated to  **Interface Segregation Principle** because it forced the `SmartWatch` class to depend on methods that it didn't use.
+2. This made the `SmartWatch` class implement methods throwing an `UnimplementedError`, which could lead to runtime errors.
