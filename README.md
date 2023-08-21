@@ -523,7 +523,7 @@ So thechnically, we could say it does implement all the contract functions, but 
 
 What you see here is that the `SmartWatch` only truly implements the `makeCall()` function.
 
-#### So what is wrong with this code and how do we fix it?
+#### How do we fix it?
 
 **Hints:**
 
