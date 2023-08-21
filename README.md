@@ -196,7 +196,9 @@ We want that kind of predictability and coherence in our **Software Projects**.
       - **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
       - Use the **abstraction instead of the concrete classes** where the behavior is needed.
       
-      Did you succeed? Ok fine let's look at the solution.
+      Did you succeed? 
+      
+      Ok fine let's look at the solution.
 
   
      ```dart
