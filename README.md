@@ -519,7 +519,7 @@ class SmartWatch implements SmartDevice {
   }
 }
 ```
-So thechnically, we could say it does implement all the contract functions, but in reality it does not provide the functionality.
+So technically, we could say it does implement all the contract functions, but in reality it does not provide the functionality.
 
 What you see here is that the `SmartWatch` only truly implements the `makeCall()` function.
 
