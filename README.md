@@ -372,7 +372,9 @@ void serviceVehicle(Vehicle vehicle){
 
    Take some time and try to figure out.
 
-   Did you succeeded? Ok fine let's look at the solution.
+   Did you succeeded? 
+   
+   Ok fine let's look at the solution.
 
    ```dart
    abstract class Vehicle{
