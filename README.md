@@ -460,3 +460,125 @@ void serviceVehicle(Vehicle vehicle){
 ### 4. Interface Segregation Principle (ISP)
 
 *"Clients should not be forced to depend upon interfaces that they do not use"*
+
+So let's look at the bad code first
+
+```dart
+abstract class SmartDevice {
+  void makeCall();
+  void sendEmail();
+  void browseInternet();
+  void takePicture();
+}
+```
+```dart
+class SmartPhone implements SmartDevice {
+  @override
+  void makeCall() {
+    print('Making a  call...');
+  }
+
+  @override
+  void sendEmail() {
+    print('Sending email...');
+  }
+
+  @override
+  void browseInternet() {
+    print('Browsing the internet');
+  }
+
+  @override
+  void takePicture() {
+    print('Taking a picture');
+  }
+}
+```
+Now let's have a look at another smart device.
+
+```dart
+class SmartWatch implements SmartDevice {
+  @override
+  void makeCall() {
+    print('Making a call...');
+  }
+
+  @override
+  void sendEmail() {
+    throw UnimplementedError('This device cannot send emails');
+  }
+
+  @override
+  void browseInternet() {
+    throw UnimplementedError('This device cannot browse the internet');
+  }
+
+  @override
+  void takePicture() {
+    throw UnimplementedError('This device cannot take picture');
+  }
+}
+```
+So thechnically, we could say it does implement all the contract functions, but in reality it does not provide the functionality.
+
+What you see here is that the smart watch only truly implements the `makeCall()` function.
+
+So what is wrong with this code and how do we fix it?
+
+**Hints:**
+
+1. Identify methods in the interface that are not relevant to all classes implementing the inferface.
+2. Split the interface into smaller, more specific interfaces.
+3. Have each class implements only the interfaces it needs.
+
+So let's look at the solution.
+
+```dart
+abstract class Phone {
+  void makeCall();
+}
+
+abstract class EmailDevice {
+  void sendEmail();
+}
+
+abstract class WebBrowser {
+  void browseInternet();
+}
+
+abstract class Camera {
+  void takePicture();
+}
+```
+```dart
+class SmartWatch implements Phone {
+  @override
+  void makeCall() {
+    print('Making a call...');
+  }
+}
+```
+```dart
+class SmartPhone implements Phone, EmailDevice, WebBrowser, Camera {
+  @override
+  void makeCall() {
+    print('Making a  call...');
+  }
+
+  @override
+  void sendEmail() {
+    print('Sending email...');
+  }
+
+  @override
+  void browseInternet() {
+    print('Browsing the internet');
+  }
+
+  @override
+  void takePicture() {
+    print('Taking a picture');
+  }
+}
+```
+When you look at this, it seems to make a lot of sense.
