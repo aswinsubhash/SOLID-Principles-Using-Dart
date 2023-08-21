@@ -597,3 +597,7 @@ Let's recap the refactores solution.
 2. This made the `SmartWatch` class implement methods throwing an `UnimplementedError`, which could lead to runtime errors.
 
 Let's move to the final topic of **S.O.L.I.D**
+
+### 5. Dependency Inversion Principle (DIP)
+
+*"Depend upon abstractions, [not] concretions"*
