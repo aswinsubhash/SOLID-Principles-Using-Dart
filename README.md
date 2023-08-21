@@ -595,3 +595,5 @@ Let's recap the refactores solution.
 
 1. The original (bad) code violated to  **Interface Segregation Principle** because it forced the `SmartWatch` class to depend on methods that it didn't use.
 2. This made the `SmartWatch` class implement methods throwing an `UnimplementedError`, which could lead to runtime errors.
+
+Let's move to the final topic of **S.O.L.I.D**
