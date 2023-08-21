@@ -527,7 +527,7 @@ What you see here is that the `SmartWatch` only truly implements the `makeCall()
 
 **Hints:**
 
-1. Identify methods in the interface that are not relevant to all classes implementing the inferface.
+1. Identify methods in the interface that are not relevant to all classes implementing the interface.
 2. Split the interface into smaller, more specific interfaces.
 3. Have each class implements only the interfaces it needs.
 
