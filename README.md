@@ -353,15 +353,15 @@ Whether you're a developer or an architect, this article provides actionable ins
 
    1. In the refactored solution, we separated `FuelVehicle` and `ElectricVehicle` as two different abstractions, both extending `Vehicle`
 
-      ```dart
-      abstract class FuelVehicle extends Vehicle {
-      void refuel();
-      }
+  ```dart
+  abstract class FuelVehicle extends Vehicle {
+    void refuel();
+  }
 
-      abstract class ElectricVehicle extends Vehicle {
-         void recharge();
-      }
-         ```
+  abstract class ElectricVehicle extends Vehicle {
+    void recharge();
+  }
+  ```
   2. This allows us to create **separate service methods** for each type of vehicle, ensuring that we don't attempt to perform an action that doesn't make sense for a particular type of vehicle.
    
    This is where the **Liskov Substitution Principle** is very important.
