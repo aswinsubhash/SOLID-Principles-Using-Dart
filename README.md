@@ -523,3 +523,48 @@ Let's move to the final topic of **S.O.L.I.D**
 ### 5. Dependency Inversion Principle (DIP)
 
 *"Depend upon abstractions, [not] concretions"*
+
+Let's look at the bad code first
+
+```dart
+class User {
+  String name;
+
+  // Other propertise
+
+  User(this.name);
+}
+```
+```dart
+class MySQLDatabase {
+
+  void saveUser(User user) {
+    print('Saving ${user.name} to MySQL database...');
+
+    // Actual implementation...
+  }
+}
+```
+```dart
+class UserService {
+  MySQLDatabase database;
+
+  UserService(this.database);
+}
+```
+Seemingly, this is good design since we've abstracting the database access behind the `UserService` class but we can definitely make this little architecture much better.
+
+The current code violates the **Dependency Inversion Principle**, so by eliminating that issue, we will make this code better.
+
+**Hints:**
+
+1. Identify direct dependencies between high level and low level modules in your code.
+2. Introduce an interface or abstract class to decouple these modules. 
+3. Modify the high level module to depend on the abstraction, not on the low level module.
+4. Implement the abstraction in each low level module.
+5. Use dependency injection to provide the low level module to the high level module.
+
+So here the question for you would be which one is the high level module and which one is the low level module in this code?
+
+So let's look at with a refactored solution.
+
