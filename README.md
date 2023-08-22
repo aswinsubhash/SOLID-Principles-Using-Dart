@@ -568,3 +568,45 @@ So here the question for you would be which one is the high level module and whi
 
 So let's look at with a refactored solution.
 
+```dart
+class User {
+  String name;
+  // Other propertise
+  User(this.name);
+}
+```
+
+```dart
+abstract class Database {
+  void saveUser(User user);
+}
+```
+
+```dart
+class MySQLDatabase implements Database {
+  void saveUser(User user) {
+    print('Saving ${user.name} to MySQL database...');
+    // Actual implementation...
+  }
+}
+```
+
+```dart
+class PostgreSQLDatabase implements Database {
+  void saveUser(User user) {
+    print('Saving ${user.name} to PostgreSQL database...');
+    // Actual implementation...
+  }
+}
+```
+
+```dart
+class UserService {
+  Database database; // dependency injection
+  UserService(this.database);
+
+  void saveUser(User user){
+    database.saveUser(user);
+  }
+}
+```
