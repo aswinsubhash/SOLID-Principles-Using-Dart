@@ -108,8 +108,6 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   Take some time and think about how does this class violate the **Open/Closed Principle**?
 
-  Did you get it? Ok fine let's look at the hints and try again.
-
   **Hints:**
 
    - Identify the parts of the code **that changes** when a new type of object is introduced.
