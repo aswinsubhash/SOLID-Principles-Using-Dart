@@ -159,7 +159,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   So what have we learned from the refactoring?
 
-  1. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
+  1. In the refactores solution, we have an abstract `Shape` class with an abstract `calculateArea()` method.
 
    ```dart
    abstract class Shape {
