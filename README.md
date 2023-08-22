@@ -159,130 +159,129 @@ Whether you're a developer or an architect, this article provides actionable ins
   ```  
 
 
-      So what have we learned from the refactoring?
+  So what have we learned from the refactoring?
 
-      1. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
+  1. In the refactores solution, we have an abstract `Shape` class with **an abstract** calculateArea method.
 
-         ```dart
-         abstract class Shape {
-           double calculateArea();
-         }
-         ```
-      2. Then we have the `Circle` and `Square` classes, which are **concrete** implementation of the `Shape` class.
-      3. Each of these classes overrides the `calculateArea()` method to provide it's own implementation.
+   ```dart
+   abstract class Shape {
+     double calculateArea();
+   }
+   ```
+  2. Then we have the `Circle` and `Square` classes, which are **concrete** implementation of the `Shape` class.
+  3. Each of these classes overrides the `calculateArea()` method to provide it's own implementation.
 
-         ```dart
-         class Circle extends Shape {
-           double radius;
+  ```dart
+   class Circle extends Shape {
+     double radius;
 
-           Circle(this.radius);
+     Circle(this.radius);
 
-           @override
-           double calculateArea() {
-              return 3.14 * radius * radius; // πr²
-           }
-         }
+     @override
+     double calculateArea() {
+       return 3.14 * radius * radius; // πr²
+     }
+   }
 
-         class Square extends Shape {
-           double side;
+    class Square extends Shape {
+      double side;
 
-           Square(this.side);
+      Square(this.side);
 
-           @override
-           double calculateArea() {
-              return side * side;
-           }
-         }
-         ```
-      4. Finally, we have the `AreaCalculator` class that uses the `Shape` class to calculate the area, so it doesn't need to know the specific type of shape.
-
-          ```dart
-          class AreaCalculator {
-             double calculate(Shape shape) {
-                return shape.calculateArea();
-             }
-          }
-          ```
-
-      So, this is the solution.
-
-      #### But what exactly was wrong with the code?
-      #### What was bad with the code?
-
-      - The bad code violated the Open/Closed Priciple because the `AreaCalculator` class was not closed for modification.
-
-      ```dart
-      class Shape {
-        String type;
-
-        Shape(this.type);
+      @override
+      double calculateArea() {
+        return side * side;
       }
+    }
+  ```
+  4. Finally, we have the `AreaCalculator` class that uses the `Shape` class to calculate the area, so it doesn't need to know the specific type of shape.
 
-      class AreaCalculator {
-        double calculateArea(Shape shape) {
-          if (shape.type == 'circle') {
-             // calculate area of circle
-          } else if (shape.type == 'square') {
-             // calculate area of square
-          }
-             // ...
-        }
-      }  
-       ```
-      - Every time we wanted to add a new shape, we had to modify the `AreaCalculator` class.
-      - This made the class difficult to maintain and also increase the risk of introducing bugs.
+  ```dart
+  class AreaCalculator {
+    double calculate(Shape shape) {
+      return shape.calculateArea();
+    }
+  }
+  ```
+
+  So, this is the solution.
+
+  **But what exactly was wrong with the code?**
+
+  - The bad code violated the Open/Closed Priciple because the `AreaCalculator` class was not closed for modification.
+
+  ```dart
+  class Shape {
+    String type;
+
+    Shape(this.type);
+  }
+
+  class AreaCalculator {
+    double calculateArea(Shape shape) {
+      if (shape.type == 'circle') {
+         // calculate area of circle
+      } else if (shape.type == 'square') {
+         // calculate area of square
+      }
+         // ...
+    }
+  }  
+  ```
+  - Every time we wanted to add a new shape, we had to modify the `AreaCalculator` class.
+  - This made the class difficult to maintain and also increase the risk of introducing bugs.
      
-     So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the `AreaCalculator` itself doesn't have to change in the future.
+  So as you've seen, the solution itself is actually very nice, very elegant and most importantly, very easy to use. Because it follows the Open/Closed Principle, the `AreaCalculator` itself doesn't have to change in the future.
 
-### 3. Liskov Substitution Principle (LSP)
+  ### 3. Liskov Substitution Principle (LSP)
 
-*"Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it"*
+  *"Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it"*
 
-So, let's have a look at this piece of codes below.
+  So, let's have a look at this piece of codes below.
 
-```dart
-abstract class Vehicle{
-   void refuel();
-   void move();
-}
-```
-```dart
-class ElectricCar extends Vehicle{
-
-   @override
-   void refuel(){
-      print('Charging the battery...');
-   }
-      
-   @override
-   void move(){
-      print('Moving...');
-   }
-}
- ```
-```dart
-
-class PetrolCar extends Vehicle{
-
-  @override
-  void refuel(){
-     print('Refilling the petrol...');
+  ```dart
+  abstract class Vehicle{
+     void refuel();
+     void move();
   }
-      
-  @override
-  void move(){
-      print('Moving...');
-  }
-}
- ```
-```dart
-void serviceVehicle(Vehicle vehicle){
-   vehicle.refuel();
-      
-   // some more servicing activities
+  ```
+  ```dart
+  class ElectricCar extends Vehicle{
 
-}
- ```
+     @override
+     void refuel(){
+        print('Charging the battery...');
+     }
+      
+     @override
+     void move(){
+        print('Moving...');
+     }
+  }
+   ```
+  ```dart
+
+  class PetrolCar extends Vehicle{
+
+    @override
+    void refuel(){
+       print('Refilling the petrol...');
+    }
+      
+    @override
+    void move(){
+       print('Moving...');
+    }
+  }
+   ```
+  ```dart
+  void serviceVehicle(Vehicle vehicle){
+     vehicle.refuel();
+      
+     // some more servicing activities
+
+  }
+   ```
    These set of codes violates the **Liskov Subsititution Priciple**.
 
    Let's look at some of hints to help you with figuring this out.
