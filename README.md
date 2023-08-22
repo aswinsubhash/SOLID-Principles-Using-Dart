@@ -381,194 +381,194 @@ Whether you're a developer or an architect, this article provides actionable ins
 
    You even see this in real life where you have special charging stations for electric cars, which are different from gas station.
 
-### 4. Interface Segregation Principle (ISP)
+  ### 4. Interface Segregation Principle (ISP)
 
-*"Clients should not be forced to depend upon interfaces that they do not use"*
+  *"Clients should not be forced to depend upon interfaces that they do not use"*
 
-So let's look at the bad code first
+  So let's look at the bad code first
 
-```dart
-abstract class SmartDevice {
-  void makeCall();
-  void sendEmail();
-  void browseInternet();
-  void takePicture();
-}
-```
-```dart
-class SmartPhone implements SmartDevice {
-  @override
-  void makeCall() {
-    print('Making a  call...');
+  ```dart
+  abstract class SmartDevice {
+    void makeCall();
+    void sendEmail();
+    void browseInternet();
+    void takePicture();
+  }
+  ```
+  ```dart
+  class SmartPhone implements SmartDevice {
+    @override
+    void makeCall() {
+      print('Making a  call...');
+    }
+
+    @override
+    void sendEmail() {
+      print('Sending email...');
+    }
+
+    @override
+    void browseInternet() {
+      print('Browsing the internet');
+    }
+
+    @override
+    void takePicture() {
+      print('Taking a picture');
+    }
+  }
+  ```
+  Now let's have a look at another smart device.
+
+  ```dart
+  class SmartWatch implements SmartDevice {
+    @override
+    void makeCall() {
+      print('Making a call...');
+    }
+
+    @override
+    void sendEmail() {
+      throw UnimplementedError('This device cannot send emails');
+    }
+
+    @override
+    void browseInternet() {
+      throw UnimplementedError('This device cannot browse the internet');
+    }
+
+    @override
+    void takePicture() {
+      throw UnimplementedError('This device cannot take picture');
+    }
+  }
+  ```
+  So technically, we could say it does implement all the contract functions, but in reality it does not provide the functionality.
+
+  What you see here is that the `SmartWatch` only truly implements the `makeCall()` function.
+
+  #### How do we fix it?
+
+  **Hints:**
+
+  1. Identify methods in the interface that are not relevant to all classes implementing the interface.
+  2. Split the interface into smaller, more specific interfaces.
+  3. Have each class implements only the interfaces it needs.
+
+  So let's look at the solution.
+
+  ```dart
+  abstract class Phone {
+    void makeCall();
   }
 
-  @override
-  void sendEmail() {
-    print('Sending email...');
+  abstract class EmailDevice {
+    void sendEmail();
   }
 
-  @override
-  void browseInternet() {
-    print('Browsing the internet');
+  abstract class WebBrowser {
+    void browseInternet();
   }
 
-  @override
-  void takePicture() {
-    print('Taking a picture');
+  abstract class Camera {
+    void takePicture();
   }
-}
-```
-Now let's have a look at another smart device.
-
-```dart
-class SmartWatch implements SmartDevice {
-  @override
-  void makeCall() {
-    print('Making a call...');
+  ```
+  ```dart
+  class SmartWatch implements Phone {
+    @override
+    void makeCall() {
+      print('Making a call...');
+    }
   }
+  ```
+  ```dart
+  class SmartPhone implements Phone, EmailDevice, WebBrowser, Camera {
+    @override
+    void makeCall() {
+      print('Making a  call...');
+    }
 
-  @override
-  void sendEmail() {
-    throw UnimplementedError('This device cannot send emails');
+    @override
+    void sendEmail() {
+      print('Sending email...');
+    }
+
+    @override
+    void browseInternet() {
+      print('Browsing the internet');
+    }
+
+    @override
+    void takePicture() {
+      print('Taking a picture');
+    }
   }
+  ```
+  When you look at this, it seems to make a lot of sense.
 
-  @override
-  void browseInternet() {
-    throw UnimplementedError('This device cannot browse the internet');
+  Yes, we have more interfaces, but we are not forcing classes to implement interfaces that they do not need.
+
+  Let's recap the refactores solution.
+
+  1. In the refactored solution, the `SmartDevice` interface is segregated into four interfaces: `Phone`, `EmailDevice`, `WebBrowser` and `Camera`.
+  2. The `SmartPhone` class implements all four interfaces while the `SmartWatch` class implements only the `Phone` interface.
+  3. This way, the `SmartWatch` class is not forced to implement the `sendMail()`, `browseInternet()` and `takePicture()` methods, which it doesn't need.
+
+  #### What's wrong in the original code?
+
+  1. The original (bad) code violated to  **Interface Segregation Principle** because it forced the `SmartWatch` class to depend on methods that it didn't use.
+  2. This made the `SmartWatch` class implement methods throwing an `UnimplementedError`, which could lead to runtime errors.
+
+  Let's move to the final topic of **S.O.L.I.D**
+
+  ### 5. Dependency Inversion Principle (DIP)
+
+  *"Depend upon abstractions, [not] concretions"*
+
+  Let's look at the bad code first
+
+  ```dart
+  class User {
+    String name;
+
+    // Other propertise
+
+    User(this.name);
   }
+  ```
+  ```dart
+  class MySQLDatabase {
 
-  @override
-  void takePicture() {
-    throw UnimplementedError('This device cannot take picture');
+    void saveUser(User user) {
+      print('Saving ${user.name} to MySQL database...');
+
+      // Actual implementation...
+    }
   }
-}
-```
-So technically, we could say it does implement all the contract functions, but in reality it does not provide the functionality.
+  ```
+  ```dart
+  class UserService {
+    MySQLDatabase database;
 
-What you see here is that the `SmartWatch` only truly implements the `makeCall()` function.
-
-#### How do we fix it?
-
-**Hints:**
-
-1. Identify methods in the interface that are not relevant to all classes implementing the interface.
-2. Split the interface into smaller, more specific interfaces.
-3. Have each class implements only the interfaces it needs.
-
-So let's look at the solution.
-
-```dart
-abstract class Phone {
-  void makeCall();
-}
-
-abstract class EmailDevice {
-  void sendEmail();
-}
-
-abstract class WebBrowser {
-  void browseInternet();
-}
-
-abstract class Camera {
-  void takePicture();
-}
-```
-```dart
-class SmartWatch implements Phone {
-  @override
-  void makeCall() {
-    print('Making a call...');
+    UserService(this.database);
   }
-}
-```
-```dart
-class SmartPhone implements Phone, EmailDevice, WebBrowser, Camera {
-  @override
-  void makeCall() {
-    print('Making a  call...');
-  }
+  ```
+  Seemingly, this is good design since we've abstracting the database access behind the `UserService` class but we can definitely make this little architecture much better.
 
-  @override
-  void sendEmail() {
-    print('Sending email...');
-  }
+  The current code violates the **Dependency Inversion Principle**, so by eliminating that issue, we will make this code better.
 
-  @override
-  void browseInternet() {
-    print('Browsing the internet');
-  }
+  **Hints:**
 
-  @override
-  void takePicture() {
-    print('Taking a picture');
-  }
-}
-```
-When you look at this, it seems to make a lot of sense.
+  1. Identify direct dependencies between high level and low level modules in your code.
+  2. Introduce an interface or abstract class to decouple these modules. 
+  3. Modify the high level module to depend on the abstraction, not on the low level module.
+  4. Implement the abstraction in each low level module.
+  5. Use dependency injection to provide the low level module to the high level module.
 
-Yes, we have more interfaces, but we are not forcing classes to implement interfaces that they do not need.
+  So here the question for you would be which one is the high level module and which one is the low level module in this code?
 
-Let's recap the refactores solution.
-
-1. In the refactored solution, the `SmartDevice` interface is segregated into four interfaces: `Phone`, `EmailDevice`, `WebBrowser` and `Camera`.
-2. The `SmartPhone` class implements all four interfaces while the `SmartWatch` class implements only the `Phone` interface.
-3. This way, the `SmartWatch` class is not forced to implement the `sendMail()`, `browseInternet()` and `takePicture()` methods, which it doesn't need.
-
-#### What's wrong in the original code?
-
-1. The original (bad) code violated to  **Interface Segregation Principle** because it forced the `SmartWatch` class to depend on methods that it didn't use.
-2. This made the `SmartWatch` class implement methods throwing an `UnimplementedError`, which could lead to runtime errors.
-
-Let's move to the final topic of **S.O.L.I.D**
-
-### 5. Dependency Inversion Principle (DIP)
-
-*"Depend upon abstractions, [not] concretions"*
-
-Let's look at the bad code first
-
-```dart
-class User {
-  String name;
-
-  // Other propertise
-
-  User(this.name);
-}
-```
-```dart
-class MySQLDatabase {
-
-  void saveUser(User user) {
-    print('Saving ${user.name} to MySQL database...');
-
-    // Actual implementation...
-  }
-}
-```
-```dart
-class UserService {
-  MySQLDatabase database;
-
-  UserService(this.database);
-}
-```
-Seemingly, this is good design since we've abstracting the database access behind the `UserService` class but we can definitely make this little architecture much better.
-
-The current code violates the **Dependency Inversion Principle**, so by eliminating that issue, we will make this code better.
-
-**Hints:**
-
-1. Identify direct dependencies between high level and low level modules in your code.
-2. Introduce an interface or abstract class to decouple these modules. 
-3. Modify the high level module to depend on the abstraction, not on the low level module.
-4. Implement the abstraction in each low level module.
-5. Use dependency injection to provide the low level module to the high level module.
-
-So here the question for you would be which one is the high level module and which one is the low level module in this code?
-
-So let's look at with a refactored solution.
+  So let's look at with a refactored solution.
 
 ```dart
 class User {
