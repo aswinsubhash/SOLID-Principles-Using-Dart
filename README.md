@@ -612,20 +612,20 @@ Whether you're a developer or an architect, this article provides actionable ins
     }
   }
   ```
-Let's recap what we did here.
+  Let's recap what we did here.
 
-1. In the refactored solution, we create an abstract class `Database` that declares the `saveUser()` method.
-2. Both `MySQLDatabase` and `PostgreSQLDatabase` implements this interface.
-3. The `UserService` class depends on the `Database` abstraction, not on a specific database specific class.
-4. This way, we can easily switch between different database systems without changing `UserService`.
+  1. In the refactored solution, we create an abstract class `Database` that declares the `saveUser()` method.
+  2. Both `MySQLDatabase` and `PostgreSQLDatabase` implements this interface.
+  3. The `UserService` class depends on the `Database` abstraction, not on a specific database specific class.
+  4. This way, we can easily switch between different database systems without changing `UserService`.
 
-That's very powerful.
+  That's very powerful.
 
-#### What exactly was wrong with the original code?
+  #### What exactly was wrong with the original code?
 
-- The original code violates the **Dependency Inversion Principle**, because `UserService` directly depends on a specific database class which is the `MySQLDatabase`.
-- This makes UserService less flexible and harder to adapt to changes (like switching to another database system).
+  - The original code violates the **Dependency Inversion Principle**, because `UserService` directly depends on a specific database class which is the `MySQLDatabase`.
+  - This makes UserService less flexible and harder to adapt to changes (like switching to another database system).
 
-So I hope that this has shed a little bit more light on what it is exactly about the **SOLID Principles**
+  So I hope that this has shed a little bit more light on what it is exactly about the **SOLID Principles**
 
 ## Conclusion
