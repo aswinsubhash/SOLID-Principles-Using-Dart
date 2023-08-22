@@ -85,78 +85,78 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   Let's have a look at this piece of codes.
 
-      ```dart
-      class Shape {
-        String type;
+  ```dart
+  class Shape {
+    String type;
 
-        Shape(this.type);
-      } 
-       ```
-      ```dart
-      class AreaCalculator {
-        double calculateArea(Shape shape) {
-          if (shape.type == 'circle') {
-             // calculate area of circle
-          } else if (shape.type == 'square') {
-            // calculate area of square
-          }
-            // ...
-        }
-      } 
-       ```
-      This code is Pretty Bad, it violates **Open/Closed Principle**
+    Shape(this.type);
+  } 
+  ```
+  ```dart
+  class AreaCalculator {
+    double calculateArea(Shape shape) {
+      if (shape.type == 'circle') {
+          // calculate area of circle
+      } else if (shape.type == 'square') {
+        // calculate area of square
+      }
+        // ...
+    }
+  } 
+  ```
+  This code is Pretty Bad, it violates **Open/Closed Principle**
 
-      Take some time and think about how does this class violate the **Open/Closed Principle**?
+  Take some time and think about how does this class violate the **Open/Closed Principle**?
 
-      Did you get it? Ok fine let's look at the hints and try again.
+  Did you get it? Ok fine let's look at the hints and try again.
 
-      **Hints:**
+  **Hints:**
 
-      - Identify the parts of the code **that changes** when a new type of object is introduced.
-      - Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
-      - **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
-      - Use the **abstraction instead of the concrete classes** where the behavior is needed.
+   - Identify the parts of the code **that changes** when a new type of object is introduced.
+  - Create an **abstraction** (interface or abstract class) for these objects and define the behaviour that varies in this abstraction.
+  - **Implement this abstraction** in each of the object classes, providing their own implementation of the behaviour.
+  - Use the **abstraction instead of the concrete classes** where the behavior is needed.
       
-      Did you succeed? 
+  Did you succeed? 
       
-      Ok fine let's look at the solution.
+  Ok fine let's look at the solution.
 
   
-     ```dart
-      abstract class Shape {
-        double calculateArea();
-      }
-      ```
-    ```dart
-      class Circle extends Shape {
-        double radius;
+  ```dart
+  abstract class Shape {
+    double calculateArea();
+  }
+  ```
+  ```dart
+  class Circle extends Shape {
+    double radius;
 
-        Circle(this.radius);
+    Circle(this.radius);
 
-        @override
-        double calculateArea() {
-          return 3.14 * radius * radius; // πr²
-        }
-      }
+    @override
+    double calculateArea() {
+      return 3.14 * radius * radius; // πr²
+    }
+  }
       
-      class Square extends Shape {
-        double side;
+  class Square extends Shape {
+    double side;
 
-        Square(this.side);
+    Square(this.side);
 
-        @override
-        double calculateArea() {
-          return side * side;
-        }
-      }
-       ```
-    ```dart
-      class AreaCalculator {
-        double calculate(Shape shape) {
-          return shape.calculateArea();
-        }
-      } 
-       ```  
+    @override
+    double calculateArea() {
+      return side * side;
+    }
+  }
+  ```
+  ```dart
+  class AreaCalculator {
+    double calculate(Shape shape) {
+      return shape.calculateArea();
+    }
+  } 
+  ```  
 
 
       So what have we learned from the refactoring?
