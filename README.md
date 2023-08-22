@@ -88,7 +88,7 @@ Whether you're a developer or an architect, this article provides actionable ins
   2. In the refactored solution, we have separated the responsibilities into three different classes: `User`, `UserRepository` and `UserView`.
   3. `User` class is responsible for holding user data, `UserRepository` class is responsible for saving user data to the database, and `UserView` class is responsible for displaying a welcome message to the user.
       
-  That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
+  That's basically it. The **S** and the solid, which is the Single Responsibility Principle.
 
   ### 2. Open/Closed Principle (OCP)
 
@@ -217,7 +217,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   **But what exactly was wrong with the code?**
 
-  - The bad code violated the Open/Closed Priciple because the `AreaCalculator` class was not closed for modification.
+  - The bad code violated the Open/Closed Principle because the `AreaCalculator` class was not closed for modification.
 
   ```dart
   class Shape {
@@ -291,7 +291,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   }
    ```
-   These set of codes violates the **Liskov Subsititution Priciple**.
+   These set of codes violates the **Liskov Substitution Principle**.
 
    Let's look at some of hints to help you with figuring this out.
 
