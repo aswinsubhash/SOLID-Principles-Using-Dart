@@ -570,48 +570,48 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   So let's look at with a refactored solution.
 
-```dart
-class User {
-  String name;
-  // Other propertise
-  User(this.name);
-}
-```
-
-```dart
-abstract class Database {
-  void saveUser(User user);
-}
-```
-
-```dart
-class MySQLDatabase implements Database {
-  void saveUser(User user) {
-    print('Saving ${user.name} to MySQL database...');
-    // Actual implementation...
+  ```dart
+  class User {
+    String name;
+    // Other propertise
+    User(this.name);
   }
-}
-```
+  ```
 
-```dart
-class PostgreSQLDatabase implements Database {
-  void saveUser(User user) {
-    print('Saving ${user.name} to PostgreSQL database...');
-    // Actual implementation...
+  ```dart
+  abstract class Database {
+    void saveUser(User user);
   }
-}
-```
+  ```
 
-```dart
-class UserService {
-  Database database; // dependency injection
-  UserService(this.database);
-
-  void saveUser(User user){
-    database.saveUser(user);
+  ```dart
+  class MySQLDatabase implements Database {
+    void saveUser(User user) {
+      print('Saving ${user.name} to MySQL database...');
+      // Actual implementation...
+    }
   }
-}
-```
+  ```
+
+  ```dart
+  class PostgreSQLDatabase implements Database {
+    void saveUser(User user) {
+      print('Saving ${user.name} to PostgreSQL database...');
+      // Actual implementation...
+    }
+  }
+  ```
+
+  ```dart
+  class UserService {
+    Database database; // dependency injection
+    UserService(this.database);
+
+    void saveUser(User user){
+      database.saveUser(user);
+    }
+  }
+  ```
 Let's recap what we did here.
 
 1. In the refactored solution, we create an abstract class `Database` that declares the `saveUser()` method.
