@@ -392,7 +392,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   ### 4. Interface Segregation Principle (ISP)
 
-  *"Clients should not be forced to depend upon interfaces that they do not use"*
+  *"Many client-specific interfaces are better than one general-purpose interface"*
 
   So let's look at the bad code first
 
