@@ -1,35 +1,36 @@
 # SOLID Principles Using Dart 
 
-**SOLID** Principles of object-oriented programming.
+## Introduction
 
- 1. **Single-responsibility principle**: *There should never be more than one reason for a class to change.* Each class should have only one central responsibility.
- 2. **Open-closed principle**: *Software entities...should be open for extension, but closed for modification.*
- 3. **Liskov substitution principle**: *Functions that use pointers, or references to base classes, must be able to use objects of derived classes without knowing it.*
- 4. **Interface segregation principle**: *Clients should not be forced to depend upon interfaces that they do not use.*
- 5. **Dependency inversion principle**: *Depend upon abstractions, [not] concretions.*
+In the realm of software development, creating applications that are robust, maintainable, and scalable is an art. The **SOLID** principles are guiding lights on this path, illuminating the way to crafting effective software solutions.
 
-     ### 1. Single Responsibility Principle (SRP)
+In this article, we explore the core concepts of the SOLID principles. From the Single Responsibility Principle to the Dependency Inversion Principle, we unravel how these principles contribute to adaptable and functional code.
+Discover how each SOLID principle becomes a cornerstone for software that thrives amidst changing requirements.
 
-     *"There should never be more than one reason for a class to change"*
+Whether you're a developer or an architect, this article provides actionable insights and a fresh perspective on integrating SOLID principles into your coding practices. Let's journey into the world of SOLID principles and unlock the secrets to crafting exceptional software.
 
-     Let's look at a class that violates the SRP.
+  ### 1. Single Responsibility Principle (SRP)
 
-     ```dart
-     class User {
-       String name;
-       String email;
+  *"There should never be more than one reason for a class to change"*. Each class should have only one central responsibility.
 
-       User(this.name, this.email);
+  Let's look at a class that violates the SRP.
 
-       void saveUserToDatabase() {
-          // save user to the database
-       }
+  ```dart
+  class User {
+    String name;
+    String email;
 
-       void showWelcomeMessage() {
-          print('Welcome, $name!');
-       }
-     }
-      ```
+    User(this.name, this.email);
+
+    void saveUserToDatabase() {
+       // save user to the database
+    }
+
+    void showWelcomeMessage() {
+       print('Welcome, $name!');
+    }
+  }
+  ```
 
       We have a single class that has some data and it has two functions or two methods.
 
@@ -610,3 +611,20 @@ class UserService {
   }
 }
 ```
+Let's recap what we did here.
+
+1. In the refactored solution, we create an abstract class `Database` that declares the `saveUser()` method.
+2. Both `MySQLDatabase` and `PostgreSQLDatabase` implements this interface.
+3. The `UserService` class depends on the `Database` abstraction, not on a specific database specific class.
+4. This way, we can easily switch between different database systems without changing `UserService`.
+
+That's very powerful.
+
+#### What exactly was wrong with the original code?
+
+- The original code violates the **Dependency Inversion Principle**, because `UserService` directly depends on a specific database class which is the `MySQLDatabase`.
+- This makes UserService less flexible and harder to adapt to changes (like switching to another database system).
+
+So I hope that this has shed a little bit more light on what it is exactly about the **SOLID Principles**
+
+## Conclusion
