@@ -1,5 +1,16 @@
 # SOLID Principles Using Dart 
 
+## Table of contents
+
+  - [Introduction](#introduction)
+  - [SOLID principles in object oriented programming](#solid-principles-in-object-oriented-programming)
+    - [1. Single Responsibility Principle (SRP)](#1-single-responsibility-principle-srp)
+    - [2. Open/Closed Principle (OCP)](#2-openclosed-principle-ocp)
+    - [3. Liskov Substitution Principle (LSP)](#3-liskov-substitution-principle-lsp)
+    - [4. Interface Segregation Principle (ISP)](#4-interface-segregation-principle-isp)
+    - [5. Dependency Inversion Principle (DIP)](#5-dependency-inversion-principle-dip)
+  - [Conclusion](#conclusion)
+
 ## Introduction
 
 In the realm of software development, creating applications that are robust, maintainable, and scalable is an art. The **SOLID** principles are guiding lights on this path, illuminating the way to crafting effective software solutions.
@@ -368,7 +379,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
    This was semantic problem.
 
-   #### So, what was really wrong with the original code?
+   **So, what was really wrong with the original code?**
 
    - The original code violated the **Liskov Substitution Principle** because `ElectricCar`, as a subclass of `Vehicle`, wasn't truly substitutable for `Vehicle` in all situations.
    - Specifically, the `refuel()` method didn't make sense for `ElectricCar`.
@@ -445,7 +456,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   What you see here is that the `SmartWatch` only truly implements the `makeCall()` function.
 
-  #### How do we fix it?
+  **How do we fix it?**
 
   **Hints:**
 
@@ -513,7 +524,7 @@ Whether you're a developer or an architect, this article provides actionable ins
   2. The `SmartPhone` class implements all four interfaces while the `SmartWatch` class implements only the `Phone` interface.
   3. This way, the `SmartWatch` class is not forced to implement the `sendMail()`, `browseInternet()` and `takePicture()` methods, which it doesn't need.
 
-  #### What's wrong in the original code?
+  **What's wrong in the original code?**
 
   1. The original (bad) code violated to  **Interface Segregation Principle** because it forced the `SmartWatch` class to depend on methods that it didn't use.
   2. This made the `SmartWatch` class implement methods throwing an `UnimplementedError`, which could lead to runtime errors.
@@ -619,7 +630,7 @@ Whether you're a developer or an architect, this article provides actionable ins
 
   That's very powerful.
 
-  #### What exactly was wrong with the original code?
+  **What exactly was wrong with the original code?**
 
   - The original code violates the **Dependency Inversion Principle**, because `UserService` directly depends on a specific database class which is the `MySQLDatabase`.
   - This makes UserService less flexible and harder to adapt to changes (like switching to another database system).
