@@ -1,7 +1,6 @@
 # SOLID Principles Using Dart 
 
-## Table of contents
-
+- [SOLID Principles Using Dart](#solid-principles-using-dart)
   - [Introduction](#introduction)
   - [SOLID principles in object oriented programming](#solid-principles-in-object-oriented-programming)
     - [1. Single Responsibility Principle (SRP)](#1-single-responsibility-principle-srp)
