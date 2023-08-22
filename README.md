@@ -8,6 +8,8 @@ In this article, we explore the core concepts of the SOLID principles. From the 
 Discover how each SOLID principle becomes a cornerstone for software that thrives amidst changing requirements.
 
 Whether you're a developer or an architect, this article provides actionable insights and a fresh perspective on integrating SOLID principles into your coding practices. Let's journey into the world of SOLID principles and unlock the secrets to crafting exceptional software.
+ 
+ ## SOLID principles in object oriented programming
 
   ### 1. Single Responsibility Principle (SRP)
 
@@ -32,56 +34,56 @@ Whether you're a developer or an architect, this article provides actionable ins
   }
   ```
 
-      We have a single class that has some data and it has two functions or two methods.
+  We have a single class that has some data and it has two functions or two methods.
 
-      Take some time and think about how does this class violate the **Single Responsibility Principle**?
+  Take some time and think about how does this class violate the **Single Responsibility Principle**?
 
-      Ok... Here's the hints as follows to identify different responsibilities in the given code.
+   Ok... Here's the hints as follows to identify different responsibilities in the given code.
 
-      **Hints:**
+   **Hints:**
       
-      - Identify **different responsibilities** in the given code. 
-      - **Create separate classes** for each responsibility.
-      - Ensure that each class **has only one** reason to change.
+  - Identify **different responsibilities** in the given code. 
+  - **Create separate classes** for each responsibility.
+  - Ensure that each class **has only one** reason to change.
    
-      Hope you got it. Ok fine let's look at the solution.
+  Hope you got it. Ok fine let's look at the solution.
 
-      ```dart
-      class User {
-        String name;
-        String email;
+  ```dart
+  class User {
+    String name;
+    String email;
 
-        User(this.name, this.email);
-      }
-       ```
-     ```dart
-      class UserRepository {
-        void saveUserToDatabase(User user) {
-           // save user to the database
-        }
-      }
-       ```
+    User(this.name, this.email);
+  }
+  ```
+  ```dart
+  class UserRepository {
+    void saveUserToDatabase(User user) {
+       // save user to the database
+    }
+  }
+  ```
 
-     ```dart
-      class UserView {
-        void showWelcomeMessage(User user) {
-           print('Welcome, ${user.name}!');
-         }
-      }
-       ```
-      Let's have a look at what we did here.
+  ```dart
+  class UserView {
+    void showWelcomeMessage(User user) {
+       print('Welcome, ${user.name}!');
+    }
+  }
+  ```
+  Let's have a look at what we did here.
 
-      1. The original code violate the **Single Responsibility Principle** because the `User` class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
-      2. In the refactored solution, we have separated the responsibilities into three different classes: `User`, `UserRepository` and `UserView`.
-      3. `User` class is responsible for holding user data, `UserRepository` class is responsible for saving user data to the database, and `UserView` class is responsible for displaying a welcome message to the user.
+  1. The original code violate the **Single Responsibility Principle** because the `User` class had more than one responsibility: **holding user data**, **saving user data** to the database, and **displaying** a welcome message to the user. This makes the class harder to maintain and modify in the future.
+  2. In the refactored solution, we have separated the responsibilities into three different classes: `User`, `UserRepository` and `UserView`.
+  3. `User` class is responsible for holding user data, `UserRepository` class is responsible for saving user data to the database, and `UserView` class is responsible for displaying a welcome message to the user.
       
-      That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
+  That's basically it. The **S** and the solid, which is the Single Responsibility Priciple.
 
-      ### 2. Open/Closed Principle (OCP)
+  ### 2. Open/Closed Principle (OCP)
 
-      *"Software entities...should be open for extension, but closed for modification"*
+   *"Software entities...should be open for extension, but closed for modification"*
 
-      Let's have a look at this piece of codes.
+  Let's have a look at this piece of codes.
 
       ```dart
       class Shape {
